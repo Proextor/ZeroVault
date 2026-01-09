@@ -1,0 +1,119 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - Dark Cybersecurity Aesthetic
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+  */
+  :root {
+    /* Dark cybersecurity palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 200 100% 45%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 25%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 12%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Cybersecurity specific colors */
+    --cyan-glow: 180 100% 50%;
+    --cyan: 180 95% 45%;
+    --success: 120 70% 50%;
+    --warning: 45 95% 50%;
+    --threat: 0 84% 60%;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 10% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 15%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(at 20% 50%, rgba(0, 255, 255, 0.03) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(0, 150, 255, 0.03) 0px, transparent 50%);
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg;
+  }
+
+  .glass-sm {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-md;
+  }
+
+  .glow-button {
+    @apply relative transition-all duration-200 hover:shadow-glow-cyan;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-active {
+    @apply bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+
+  .status-inactive {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .status-warning {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .cyber-input {
+    @apply bg-input border border-white/10 rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cyan/50 transition-all;
+  }
+}
